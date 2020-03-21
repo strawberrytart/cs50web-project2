@@ -28,13 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     //Prevent creating rooms with empty strings
-    document.querySelector('#create-room').disabled = true;
     document.querySelector('#user-room').onkeyup = () => {
         let room=document.querySelector('#user-room').value
-        if (room.trim().length > 0)
-            document.querySelector('#create-room').disabled = false;
-        else
-            document.querySelector('#create-room').disabled = true;
+        if (room.trim().length > 0){
+            document.querySelector('#create-room').classList.remove('disabled');
+        }
+        else{
+            document.querySelector('#create-room').classList.add('disabled');
+        }
     };
 
     // Prevent sending empty messages 
